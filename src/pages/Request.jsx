@@ -1,10 +1,11 @@
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { useNavigate } from "react-router-dom";
 // 다른 페이지로 자연스럽게 넘어가기 위해 추가함
 import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ModalBasic from "./ModalBasic";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -13,13 +14,12 @@ const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
   }
-  background-color: black;
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 80vh;
   position: relative;
   text-align: center;
   background-color: black;
@@ -36,10 +36,42 @@ const Container = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  nav {
+    z-index: 99;
+    display: flixed;
+    align-items: center;
+    height: 110vh;
+    width: 0px;
+    background-color: rgba(0, 0, 0, 0.9);
+    margin-left: 590px;
+    margin-top: -720px;
+
+    p {
+      display: none;
+      align-items: center;
+      font-family: "HBIOS-SYS";
+      color: #c71585;
+      font-size: 1.5em;
+      margin-left: 30px;
+      margin-top: 50px;
+    }
+
+    transition: 0.6s ease;
+    &.active {
+      margin-left: 190px;
+      width: 200px;
+      p {
+        display: flex;
+      }
+    }
+  }
 `;
 
 const BodyWrapper = styled.div`
-  min-height: calc(100vh - 145px);
+  z-index: 5;
+  margin-top: 30px;
+  margin-left: -20px;
 `;
 
 const Title = styled.div`
@@ -54,36 +86,39 @@ const RequestPaper = styled.div`
   z-index: 2;
   display: flex;
   flex-direction: column;
-  position: flex;
-  top: 0px;
-  height: 590px;
-  width: 390px;
-  left: 0px;
-  position: relative;
+  position: relative; /* position 속성 수정 */
+  top: 20px;
+  left: 7px;
+  height: 530px;
+  width: 350px;
   text-align: center;
-  background-image: url("/images/request_img/paper.png");
+  background-color: rgba(226, 210, 227, 0.8); /* 배경색의 투명도 조절 */
+  border: 2px solid white;
   background-size: cover;
   -ms-overflow-style: none;
   scrollbar-width: none;
   font-family: "HBIOS-SYS";
 
-  @media (hover: hover) {
-    width: 390px;
-    margin: 0 auto;
-  }
-
   &::-webkit-scrollbar {
     display: none;
   }
 
+  .bg1 {
+    width: 350px;
+    height: 20px;
+    background-color: #ff00dd;
+    border-bottom: 1.5px solid white;
+    margin-bottom: 0.5%;
+  }
+
   #name {
     margin-top: 15px;
-    margin-left: -130px;
+    margin-left: -100px;
   }
 
   #phone {
     margin-top: 15px;
-    margin-left: -130px;
+    margin-left: -100px;
   }
 
   input {
@@ -107,7 +142,7 @@ const RequestPaper = styled.div`
 
   #course {
     margin-top: 15px;
-    margin-left: -285px;
+    margin-left: -264px;
   }
 
   .select {
@@ -119,12 +154,12 @@ const RequestPaper = styled.div`
 
   #content_text {
     margin-top: 15px;
-    margin-left: -280px;
+    margin-left: -259px;
   }
 
   #content {
     margin-top: -20px;
-    margin-left: -17px;
+    margin-left: 15px;
   }
 
   textarea {
@@ -149,7 +184,7 @@ const RequestPaper = styled.div`
 
 const Button1 = styled.div`
   margin-top: 30px;
-  margin-left: -190px;
+  margin-left: -170px;
 
   img {
     transition: all 0.2s linear;
@@ -162,7 +197,6 @@ const Button1 = styled.div`
 const Button2 = styled.div`
   margin-top: -44.5px;
   margin-left: 160px;
-  margin-bottom: 50px;
 
   img {
     transition: all 0.2s linear;
@@ -173,11 +207,58 @@ const Button2 = styled.div`
   }
 `;
 
+// 별 클래스
+class Star {
+  constructor() {
+    this.x = 0;
+    this.y = 0;
+    this.size = 0;
+    this.time = 0;
+  }
+  set() {
+    this.x = Math.random() * 300; //가로영역
+    this.y = Math.random() * 800; //세로 영역
+    this.size = Math.random() * 70; // 별 크기
+    this.time = Math.random() * 7;
+
+    const background = document.getElementById("main");
+    const starDiv = document.createElement("div");
+    starDiv.className = "star"; // CSS 클래스 이름 설정
+
+    starDiv.style.left = this.x + "px";
+    starDiv.style.top = this.y + "px";
+    starDiv.style.width = this.size + "px";
+    starDiv.style.height = this.size + "px";
+
+    background.appendChild(starDiv);
+  }
+}
+
 const Request = () => {
   const navigate = useNavigate();
 
   const onClickCheck = () => {
     navigate("/RequestCheck");
+  };
+
+  const onClickBack = () => {
+    navigate("/Submain");
+  };
+
+  const onClickSchedule = () => {
+    navigate("/Schedule");
+  };
+
+  const onClickReview = () => {
+    navigate("/Review");
+  };
+
+  const onClickExperience = () => {
+    navigate("/Experience");
+  };
+
+  const onClickLoadView = () => {
+    navigate("/Load");
   };
 
   // 체크박스 하나만 선택
@@ -245,12 +326,27 @@ const Request = () => {
     setAgree(null);
   };
 
+  // 메뉴바 슬라이드
+  const [menuOpen, setMenuOpen] = useState(false);
+
   //스크롤 애니메이션 추가하기 위해 넣음
   useEffect(() => {
     AOS.init({
       duration: 1500,
     });
   });
+
+  // 별 애니메이션
+  useEffect(() => {
+    for (let i = 0; i < 15; i++) {
+      // 별 개수 여기서 조정하면 돼요!!
+      const newStar = new Star();
+      newStar.set();
+    }
+  }, []);
+
+  // 모달 창 띄우기
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     // 다른 페이지로 자연스럽게 넘어가기 위해 추가함
@@ -260,23 +356,12 @@ const Request = () => {
       exit={{ opacity: 0 }}
     >
       <GlobalStyle />
-      <Container>
+      <Container id="main">
         <BodyWrapper>
           <Title>
             <div
-              style={{
-                marginTop: "10px",
-                marginLeft: "320px",
-                marginBottom: "80px",
-              }}
-            >
-              <img alt="바" src="/images/bar.svg" style={{ width: "30px" }} />
-            </div>
-            <div
               id="title"
               style={{
-                marginTop: "-70px",
-                zIndex: "1",
                 marginLeft: "-30px",
               }}
               data-aos="flip-up"
@@ -290,11 +375,25 @@ const Request = () => {
             </div>
           </Title>
           <RequestPaper data-aos="flip-up">
+            <div className="bg1">
+              <span className="x">
+                <img
+                  alt="x"
+                  src="/images/request_img/bar_x.png"
+                  style={{
+                    width: "25px",
+                    marginTop: "-2.5px",
+                    marginLeft: "327px",
+                  }}
+                  onClick={onClickBack}
+                />
+              </span>
+            </div>
             <div id="title">
               <img
                 alt="타이틀"
                 src="/images/request_img/request_title.png"
-                style={{ width: "150px", marginTop: "30px" }}
+                style={{ width: "150px", marginTop: "20px" }}
               />
             </div>
             {/* 이름 */}
@@ -328,6 +427,7 @@ const Request = () => {
                       width: "17px",
                       height: "17px",
                       marginRight: "10px",
+                      accentColor: "#ff00dd",
                     }}
                     onClick={(e) => clickCheck1(e.target)}
                   />
@@ -343,6 +443,7 @@ const Request = () => {
                       height: "17px",
                       marginTop: "2%",
                       marginRight: "10px",
+                      accentColor: "#ff00dd",
                     }}
                     onClick={(e) => clickCheck1(e.target)}
                   />
@@ -358,6 +459,7 @@ const Request = () => {
                       height: "17px",
                       marginTop: "2%",
                       marginRight: "10px",
+                      accentColor: "#ff00dd",
                     }}
                     onClick={(e) => clickCheck1(e.target)}
                   />
@@ -387,6 +489,7 @@ const Request = () => {
                   style={{
                     width: "15px",
                     height: "15px",
+                    accentColor: "#ff00dd",
                   }}
                   checked={agree === "0"}
                   onChange={() => clickCheck2("0")}
@@ -403,15 +506,29 @@ const Request = () => {
                     marginLeft: "17%",
                     width: "15px",
                     height: "15px",
+                    accentColor: "#ff00dd",
                   }}
                   checked={agree === "1"}
                   onChange={() => {
                     clickCheck2("1");
                   }}
+                  onClick={() => setModalOpen(true)}
                 />
                 <label htmlFor="disagree" style={{ fontSize: "14px" }}>
                   동의하지 않습니다
                 </label>
+                {modalOpen && (
+                  <>
+                    <div
+                      className="modal-overlay"
+                      onClick={() => setModalOpen(false)}
+                    />
+                    <ModalBasic
+                      setModalOpen={setModalOpen}
+                      closeModal={() => setModalOpen(false)}
+                    />
+                  </>
+                )}
               </div>
             </div>
           </RequestPaper>
@@ -421,7 +538,7 @@ const Request = () => {
               className="submitbtn"
               alt="제출 버튼"
               src="/images/request_img/submit_button.png"
-              style={{ width: "170px" }}
+              style={{ width: "170px", marginTop: "30px" }}
               onClick={onClickCheck}
             />
           </Button1>
@@ -435,6 +552,29 @@ const Request = () => {
             />
           </Button2>
         </BodyWrapper>
+        <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
+          <p style={{ marginTop: "90px" }} onClick={onClickBack}>
+            Main
+          </p>
+          <p onClick={onClickSchedule}>Schedule</p>
+          <p onClick={onClickReview}>Review</p>
+          <p onClick={onClickExperience}>Experience</p>
+          <p onClick={onClickLoadView}>LoadView</p>
+        </nav>
+        <img
+          alt="바"
+          src="/images/bar.svg"
+          style={{
+            width: "30px",
+            position: "fixed",
+            marginTop: "20px",
+            marginLeft: "340px",
+            zIndex: 100,
+          }}
+          onClick={() => {
+            setMenuOpen((menuOpen) => !menuOpen);
+          }}
+        />
       </Container>
     </motion.div>
   );

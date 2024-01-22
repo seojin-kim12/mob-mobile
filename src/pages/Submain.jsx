@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import styled, { css } from "styled-components";
+import React, { useState, useRef, useEffect } from "react";
+import styled, { createGlobalStyle } from "styled-components"; // 이 부분에서 createGlobalStyle만 import하도록 수정
 import { useNavigate } from "react-router-dom";
 // 다른 페이지로 자연스럽게 넘어가기 위해 추가함
 import { motion } from "framer-motion";
@@ -8,10 +8,19 @@ import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'HBIOS-SYS';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+`;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 120vh;
+  min-height: 130vh;
   position: relative;
   text-align: center;
   background-color: black;
@@ -57,6 +66,16 @@ const Body = styled.div`
   }
 `;
 
+const Button3 = styled.div`
+  font-family: "HBIOS-SYS";
+  font-size: 30px;
+  text-decoration-line: none;
+  color: white;
+  text-shadow: 3px 3px 3px #000;
+  vertical-align: top;
+  margin-top: 35px;
+`;
+
 const Submain = () => {
   const navigate = useNavigate();
 
@@ -80,6 +99,10 @@ const Submain = () => {
     navigate("/Load");
   };
 
+  const onClickBack = () => {
+    navigate("/Main");
+  };
+
   //스크롤 애니메이션 추가하기 위해 넣음
   useEffect(() => {
     AOS.init({
@@ -94,6 +117,7 @@ const Submain = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      <GlobalStyle />
       <Container>
         <BodyWrapper>
           <Body>
@@ -260,6 +284,10 @@ const Submain = () => {
               />
             </div>
           </Body>
+          <Button3 data-aos="fade-up" onClick={onClickBack}>
+            {" "}
+            B A C K
+          </Button3>
         </BodyWrapper>
       </Container>
     </motion.div>
