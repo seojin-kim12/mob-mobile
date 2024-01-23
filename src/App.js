@@ -3,7 +3,7 @@ import Main from "./pages/Main";
 import Loading from "./pages/Loading";
 import Submain from "./pages/Submain";
 import Experience from "./pages/Experience";
-import Load from "./pages/Load";
+import Road from "./pages/Road";
 import Request from "./pages/Request";
 import RequestCheck from "./pages/RequestCheck";
 import Review from "./pages/Review";
@@ -23,7 +23,7 @@ function App() {
             <Route path="/Main" element={<Main />} />
             <Route path="/Submain" element={<Submain />} />
             <Route path="/Experience" element={<Experience />} />
-            <Route path="/Load" element={<Load />} />
+            <Route path="/Road" element={<Road />} />
             <Route path="/Request" element={<Request />} />
             <Route path="/RequestCheck" element={<RequestCheck />} />
             <Route path="/Review" element={<Review />} />

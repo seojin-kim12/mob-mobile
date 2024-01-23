@@ -188,8 +188,8 @@ const Experience = () => {
     navigate("/Request");
   };
 
-  const onClickLoadView = () => {
-    navigate("/Load");
+  const onClickRoadView = () => {
+    navigate("/Road");
   };
 
   // 메뉴바 슬라이드
@@ -200,6 +200,7 @@ const Experience = () => {
     AOS.init({
       duration: 2000,
     });
+    window.scrollTo(0, 0);
   });
 
   // 바 이미지 바꾸기
@@ -293,7 +294,7 @@ const Experience = () => {
           <p onClick={onClickSchedule}>Schedule</p>
           <p onClick={onClickReview}>Review</p>
           <p onClick={onClickRequest}>Request</p>
-          <p onClick={onClickLoadView}>LoadView</p>
+          <p onClick={onClickRoadView}>RoadView</p>
         </nav>
         <img
           alt="바"

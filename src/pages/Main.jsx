@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled, { createGlobalStyle } from "styled-components";
 import { motion } from "framer-motion";
 import "./Star.css";
@@ -184,6 +184,7 @@ const Main = () => {
       const newStar = new Star();
       newStar.set();
     }
+    window.scrollTo(0, 0);
   }, []);
 
   return (

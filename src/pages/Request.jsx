@@ -257,8 +257,8 @@ const Request = () => {
     navigate("/Experience");
   };
 
-  const onClickLoadView = () => {
-    navigate("/Load");
+  const onClickRoadView = () => {
+    navigate("/Road");
   };
 
   // 체크박스 하나만 선택
@@ -275,9 +275,7 @@ const Request = () => {
   };
 
   // textarea 자동 높이 조절 부분(하지만 뒤로가기 눌렀을 때 textarea 높이가 줄어들도록은 구현 못 함)
-  const handleKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = (
-    e
-  ) => {
+  const handleKeyDown = (e) => {
     const adminText = target.current;
 
     // 엔터키를 누를때마다 줄바꿈 되도록 하는 코드
@@ -334,6 +332,7 @@ const Request = () => {
     AOS.init({
       duration: 1500,
     });
+    window.scrollTo(0, 0);
   });
 
   // 별 애니메이션
@@ -559,7 +558,7 @@ const Request = () => {
           <p onClick={onClickSchedule}>Schedule</p>
           <p onClick={onClickReview}>Review</p>
           <p onClick={onClickExperience}>Experience</p>
-          <p onClick={onClickLoadView}>LoadView</p>
+          <p onClick={onClickRoadView}>RoadView</p>
         </nav>
         <img
           alt="바"

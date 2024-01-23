@@ -95,8 +95,8 @@ const Submain = () => {
     navigate("/Experience");
   };
 
-  const onClickLoad = () => {
-    navigate("/Load");
+  const onClickRoad = () => {
+    navigate("/Road");
   };
 
   const onClickBack = () => {
@@ -108,6 +108,7 @@ const Submain = () => {
     AOS.init({
       duration: 1000,
     });
+    window.scrollTo(0, 0);
   });
 
   return (
@@ -253,7 +254,7 @@ const Submain = () => {
                   height: "70px",
                 }}
                 data-aos="fade-up"
-                onClick={onClickLoad}
+                onClick={onClickRoad}
               />
             </div>
 

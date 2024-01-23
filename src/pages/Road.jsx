@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
-import { useNavigate } from "react-router-dom";
-// 다른 페이지로 자연스럽게 넘어가기 위해 추가함
+/*global kakao*/
+import React, { useRef, useEffect } from "react";
+import styled from "styled-components";
 import { motion } from "framer-motion";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 90vh;
   position: relative;
   text-align: center;
   background-color: black;
@@ -41,9 +40,8 @@ const Body = styled.div`
   }
 `;
 
-const Load = () => {
+const Road = () => {
   return (
-    // 다른 페이지로 자연스럽게 넘어가기 위해 추가함
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -51,10 +49,11 @@ const Load = () => {
     >
       <Container>
         <BodyWrapper>
-          <Body>{/* 여기에 코드 작성 */}</Body>
+          <Body></Body>
         </BodyWrapper>
       </Container>
     </motion.div>
   );
 };
-export default Load;
+
+export default Road;
