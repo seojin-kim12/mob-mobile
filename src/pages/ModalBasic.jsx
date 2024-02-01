@@ -1,11 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./ModalBasic.module.css";
-import { useNavigate } from "react-router-dom";
 
 function ModalBasic({ setModalOpen }) {
-  const navigate = useNavigate();
-
   // 모달 끄기
   const closeModal = () => {
     setModalOpen(false);
