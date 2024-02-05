@@ -1,12 +1,18 @@
 /* Star.css */
 .star {
   position: absolute;
-  /* width: 7px;
-    height: 7px;
-    border-radius: 5px;
-    background-color: rgb(255, 255, 255); */
   background-image: url("../../public/images/twink.png"); /*별 이미지로 추가함*/
   background-size: cover;
+  filter: blur(0.3px);
+  z-index: 0;
+  animation: blink 1s steps(5) infinite; /* 반짝거리는 애니메이션 */
+}
+
+.star2 {
+  position: absolute;
+  background-image: url("../../public/images/twinkle2.png"); /*별 이미지로 추가함*/
+  background-size: cover;
+  z-index: 0;
   filter: blur(0.3px);
   animation: blink 1s steps(5) infinite; /* 반짝거리는 애니메이션 */
 }

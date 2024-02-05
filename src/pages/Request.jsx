@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
+  min-height: 90vh;
   position: relative;
   text-align: center;
   background-color: black;
@@ -41,7 +41,7 @@ const Container = styled.div`
     z-index: 99;
     display: flixed;
     align-items: center;
-    height: 110vh;
+    height: 112vh;
     width: 0px;
     background-color: rgba(0, 0, 0, 0.9);
     margin-left: 590px;
@@ -305,25 +305,6 @@ const Request = () => {
     setAgree(value);
   };
 
-  // reset버튼 클릭하면 종이 안에 적었던 내용 초기화
-  const resetForm = () => {
-    // 이름, 번호 입력 초기화
-    document.getElementById("name-rst").value = "";
-    document.getElementById("phone-rst").value = "";
-
-    // 코스 선택 체크박스 초기화
-    document
-      .querySelectorAll(`input[type=checkbox][name="course"]`)
-      .forEach((el) => (el.checked = false));
-
-    // 의뢰 내용 초기화
-    target.current.value = "";
-    target.current.style.height = "15px"; // 의뢰 내용 높이도 초기화
-
-    // 동의 체크박스 초기화
-    setAgree(null);
-  };
-
   // 메뉴바 슬라이드
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -361,7 +342,7 @@ const Request = () => {
             <div
               id="title"
               style={{
-                marginLeft: "-30px",
+                marginLeft: "0px",
               }}
               data-aos="flip-up"
             >
@@ -547,7 +528,7 @@ const Request = () => {
               alt="리셋 버튼"
               src="/images/request_img/reset_button.png"
               style={{ width: "160px", marginLeft: "30px" }}
-              onClick={resetForm}
+              onClick={() => window.location.reload()}
             />
           </Button2>
         </BodyWrapper>
