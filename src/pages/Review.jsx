@@ -19,7 +19,6 @@ const GlobalStyle = createGlobalStyle`
   font-weight: normal;
   font-style: normal;
 }
-
 `;
 
 const Container = styled.div`
@@ -76,8 +75,6 @@ const Container = styled.div`
 const BodyWrapper = styled.div`
   min-height: calc(100vh - 145px);
 `;
-
-const Body = styled.div``;
 
 const Title = styled.div`
   margin-top: 30px;
@@ -219,8 +216,8 @@ const Review = () => {
       this.time = 0;
     }
     set() {
-      this.x = Math.random() * 300; //가로영역
-      this.y = Math.random() * 800; //세로 영역
+      this.x = Math.random() * 370; //가로영역
+      this.y = Math.random() * 640; //세로 영역
       this.size = Math.random() * 20; // 별 크기
       this.time = Math.random() * 7;
 
@@ -256,176 +253,174 @@ const Review = () => {
       <GlobalStyle />
       <Container id="main">
         <BodyWrapper>
-          <Body>
-            <Title data-aos="flip-up">チャットしてください</Title>
+          <Title data-aos="flip-up">チャットしてください</Title>
 
-            <img
-              alt="채팅 전체 박스"
-              src="/images/review_img/reviewbox_l.svg"
-              style={{ width: "300px", marginTop: "20px", zIndex: "1" }}
-            />
-            <Chatboxes>
-              <ChatWrite>
-                <div id="content">
-                  <textarea
-                    ref={target}
-                    id="target"
-                    placeholder="자유롭게 채팅해 주세요."
-                    onKeyDown={handleKeyDown}
-                  />
-                  <img
-                    id="chat_btn"
-                    alt="채팅 버튼"
-                    src="/images/review_img/chat_btn.svg"
-                    style={{
-                      position: "relative",
-                      width: "25px",
-                      marginLeft: "-33px",
-                      top: "-5px",
-                      cursor: "pointer",
-                    }}
-                    onClick={() => window.location.reload()}
-                  />
-                </div>
-              </ChatWrite>
+          <img
+            alt="채팅 전체 박스"
+            src="/images/review_img/reviewbox_l.svg"
+            style={{ width: "300px", marginTop: "20px", zIndex: "1" }}
+          />
+          <Chatboxes>
+            <ChatWrite>
+              <div id="content">
+                <textarea
+                  ref={target}
+                  id="target"
+                  placeholder="자유롭게 채팅해 주세요."
+                  onKeyDown={handleKeyDown}
+                />
+                <img
+                  id="chat_btn"
+                  alt="채팅 버튼"
+                  src="/images/review_img/chat_btn.svg"
+                  style={{
+                    position: "relative",
+                    width: "25px",
+                    marginLeft: "-33px",
+                    top: "-5px",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => window.location.reload()}
+                />
+              </div>
+            </ChatWrite>
 
-              <Chatbox>
-                <img
-                  alt="채팅 전체 박스"
-                  src="/images/cursor_img/cursor_pink.png"
-                  style={{
-                    position: "relative",
-                    width: "60px",
-                    top: "40px",
-                    left: "-100px",
-                  }}
-                />
-                <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-              </Chatbox>
+            <Chatbox>
+              <img
+                alt="채팅 전체 박스"
+                src="/images/cursor_img/cursor_pink.png"
+                style={{
+                  position: "relative",
+                  width: "60px",
+                  top: "40px",
+                  left: "-100px",
+                }}
+              />
+              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
+            </Chatbox>
 
-              <Chatbox>
-                <img
-                  alt="채팅 전체 박스"
-                  src="/images/cursor_img/cursor_pink.png"
-                  style={{
-                    position: "relative",
-                    width: "60px",
-                    top: "40px",
-                    left: "-100px",
-                  }}
-                />
-                <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-              </Chatbox>
+            <Chatbox>
+              <img
+                alt="채팅 전체 박스"
+                src="/images/cursor_img/cursor_pink.png"
+                style={{
+                  position: "relative",
+                  width: "60px",
+                  top: "40px",
+                  left: "-100px",
+                }}
+              />
+              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
+            </Chatbox>
 
-              <Chatbox>
-                <img
-                  alt="채팅 전체 박스"
-                  src="/images/cursor_img/cursor_pink.png"
-                  style={{
-                    position: "relative",
-                    width: "60px",
-                    top: "40px",
-                    left: "-100px",
-                  }}
-                />
-                <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-              </Chatbox>
+            <Chatbox>
+              <img
+                alt="채팅 전체 박스"
+                src="/images/cursor_img/cursor_pink.png"
+                style={{
+                  position: "relative",
+                  width: "60px",
+                  top: "40px",
+                  left: "-100px",
+                }}
+              />
+              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
+            </Chatbox>
 
-              <Chatbox>
-                <img
-                  alt="채팅 전체 박스"
-                  src="/images/cursor_img/cursor_pink.png"
-                  style={{
-                    position: "relative",
-                    width: "60px",
-                    top: "40px",
-                    left: "-100px",
-                  }}
-                />
-                <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-              </Chatbox>
+            <Chatbox>
+              <img
+                alt="채팅 전체 박스"
+                src="/images/cursor_img/cursor_pink.png"
+                style={{
+                  position: "relative",
+                  width: "60px",
+                  top: "40px",
+                  left: "-100px",
+                }}
+              />
+              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
+            </Chatbox>
 
-              <Chatbox>
-                <img
-                  alt="채팅 전체 박스"
-                  src="/images/cursor_img/cursor_pink.png"
-                  style={{
-                    position: "relative",
-                    width: "60px",
-                    top: "40px",
-                    left: "-100px",
-                  }}
-                />
-                <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-              </Chatbox>
+            <Chatbox>
+              <img
+                alt="채팅 전체 박스"
+                src="/images/cursor_img/cursor_pink.png"
+                style={{
+                  position: "relative",
+                  width: "60px",
+                  top: "40px",
+                  left: "-100px",
+                }}
+              />
+              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
+            </Chatbox>
 
-              <Chatbox>
-                <img
-                  alt="채팅 전체 박스"
-                  src="/images/cursor_img/cursor_pink.png"
-                  style={{
-                    position: "relative",
-                    width: "60px",
-                    top: "40px",
-                    left: "-100px",
-                  }}
-                />
-                <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-              </Chatbox>
-              <Chatbox>
-                <img
-                  alt="채팅 전체 박스"
-                  src="/images/cursor_img/cursor_pink.png"
-                  style={{
-                    position: "relative",
-                    width: "60px",
-                    top: "40px",
-                    left: "-100px",
-                  }}
-                />
-                <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-              </Chatbox>
-              <Chatbox>
-                <img
-                  alt="채팅 전체 박스"
-                  src="/images/cursor_img/cursor_pink.png"
-                  style={{
-                    position: "relative",
-                    width: "60px",
-                    top: "40px",
-                    left: "-100px",
-                  }}
-                />
-                <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-              </Chatbox>
-              <Chatbox>
-                <img
-                  alt="채팅 전체 박스"
-                  src="/images/cursor_img/cursor_pink.png"
-                  style={{
-                    position: "relative",
-                    width: "60px",
-                    top: "40px",
-                    left: "-100px",
-                  }}
-                />
-                <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-              </Chatbox>
-              <Chatbox>
-                <img
-                  alt="채팅 전체 박스"
-                  src="/images/cursor_img/cursor_pink.png"
-                  style={{
-                    position: "relative",
-                    width: "60px",
-                    top: "40px",
-                    left: "-100px",
-                  }}
-                />
-                <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-              </Chatbox>
-            </Chatboxes>
-          </Body>
+            <Chatbox>
+              <img
+                alt="채팅 전체 박스"
+                src="/images/cursor_img/cursor_pink.png"
+                style={{
+                  position: "relative",
+                  width: "60px",
+                  top: "40px",
+                  left: "-100px",
+                }}
+              />
+              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
+            </Chatbox>
+            <Chatbox>
+              <img
+                alt="채팅 전체 박스"
+                src="/images/cursor_img/cursor_pink.png"
+                style={{
+                  position: "relative",
+                  width: "60px",
+                  top: "40px",
+                  left: "-100px",
+                }}
+              />
+              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
+            </Chatbox>
+            <Chatbox>
+              <img
+                alt="채팅 전체 박스"
+                src="/images/cursor_img/cursor_pink.png"
+                style={{
+                  position: "relative",
+                  width: "60px",
+                  top: "40px",
+                  left: "-100px",
+                }}
+              />
+              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
+            </Chatbox>
+            <Chatbox>
+              <img
+                alt="채팅 전체 박스"
+                src="/images/cursor_img/cursor_pink.png"
+                style={{
+                  position: "relative",
+                  width: "60px",
+                  top: "40px",
+                  left: "-100px",
+                }}
+              />
+              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
+            </Chatbox>
+            <Chatbox>
+              <img
+                alt="채팅 전체 박스"
+                src="/images/cursor_img/cursor_pink.png"
+                style={{
+                  position: "relative",
+                  width: "60px",
+                  top: "40px",
+                  left: "-100px",
+                }}
+              />
+              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
+            </Chatbox>
+          </Chatboxes>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
           <p style={{ marginTop: "240px" }} onClick={onClickBack}>

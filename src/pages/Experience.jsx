@@ -70,7 +70,7 @@ const Container = styled.div`
     z-index: 99;
     display: flixed;
     align-items: center;
-    height: 97vh;
+    height: 97.5vh;
     width: 0px;
     background-color: rgba(0, 0, 0, 0.9);
     margin-left: 590px;
@@ -98,14 +98,14 @@ const Container = styled.div`
 `;
 
 const BodyWrapper = styled.div`
-  min-height: calc(100vh - 145px);
+  z-index: 3;
 `;
 
 const Body = styled.div`
   margin-left: -10px;
   width: 400px;
   margin-top: 40px;
-  min-height: 90vh;
+  min-height: 83vh;
   overflow-y: hidden;
   overflow-x: scroll;
   &::-webkit-scrollbar {
@@ -258,6 +258,42 @@ const Experience = () => {
     },
   ];
 
+  // 별 클래스
+  class Star {
+    constructor() {
+      this.x = 0;
+      this.y = 0;
+      this.size = 0;
+      this.time = 0;
+    }
+    set() {
+      this.x = Math.random() * 300; //가로영역
+      this.y = Math.random() * 600; //세로 영역
+      this.size = Math.random() * 80; // 별 크기
+      this.time = Math.random() * 7;
+
+      const background = document.getElementById("main");
+      const starDiv = document.createElement("div");
+      starDiv.className = "star3"; // CSS 클래스 이름 설정
+
+      starDiv.style.left = this.x + "px";
+      starDiv.style.top = this.y + "px";
+      starDiv.style.width = this.size + "px";
+      starDiv.style.height = this.size + "px";
+
+      background.appendChild(starDiv);
+    }
+  }
+
+  // 별 애니메이션
+  useEffect(() => {
+    for (let i = 0; i < 5; i++) {
+      // 별 개수 여기서 조정하면 돼요!!
+      const newStar = new Star();
+      newStar.set();
+    }
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -265,7 +301,7 @@ const Experience = () => {
       exit={{ opacity: 0 }}
     >
       <GlobalStyle />
-      <Container>
+      <Container id="main">
         <BodyWrapper>
           <Body>
             <div
@@ -288,7 +324,7 @@ const Experience = () => {
           </Body>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "130px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "180px" }} onClick={onClickBack}>
             Main
           </p>
           <p onClick={onClickSchedule}>Schedule</p>

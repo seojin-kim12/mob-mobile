@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 130vh;
+  min-height: 115.5vh;
   position: relative;
   text-align: center;
   background-color: black;
@@ -42,6 +42,7 @@ const Container = styled.div`
 
 const BodyWrapper = styled.div`
   min-height: calc(100vh - 145px);
+  z-index: 3;
 `;
 
 const Body = styled.div`
@@ -95,10 +96,6 @@ const Submain = () => {
     navigate("/Experience");
   };
 
-  const onClickRoad = () => {
-    navigate("/Road");
-  };
-
   const onClickBack = () => {
     navigate("/Main");
   };
@@ -111,6 +108,42 @@ const Submain = () => {
     window.scrollTo(0, 0);
   });
 
+  // 별 클래스
+  class Star {
+    constructor() {
+      this.x = 0;
+      this.y = 0;
+      this.size = 0;
+      this.time = 0;
+    }
+    set() {
+      this.x = Math.random() * 300; //가로영역
+      this.y = Math.random() * 800; //세로 영역
+      this.size = Math.random() * 25; // 별 크기
+      this.time = Math.random() * 7;
+
+      const background = document.getElementById("main");
+      const starDiv = document.createElement("div");
+      starDiv.className = "star2"; // CSS 클래스 이름 설정
+
+      starDiv.style.left = this.x + "px";
+      starDiv.style.top = this.y + "px";
+      starDiv.style.width = this.size + "px";
+      starDiv.style.height = this.size + "px";
+
+      background.appendChild(starDiv);
+    }
+  }
+
+  // 별 애니메이션
+  useEffect(() => {
+    for (let i = 0; i < 25; i++) {
+      // 별 개수 여기서 조정하면 돼요!!
+      const newStar = new Star();
+      newStar.set();
+    }
+  }, []);
+
   return (
     // 다른 페이지로 자연스럽게 넘어가기 위해 추가함
     <motion.div
@@ -119,13 +152,13 @@ const Submain = () => {
       exit={{ opacity: 0 }}
     >
       <GlobalStyle />
-      <Container>
+      <Container id="main">
         <BodyWrapper>
           <Body>
             <div
               id="title"
               style={{
-                marginTop: "-110px",
+                marginTop: "-90px",
                 marginLeft: "40px",
                 zIndex: "1",
                 position: "fixed",
@@ -241,20 +274,6 @@ const Submain = () => {
                 }}
                 data-aos="fade-left"
                 onClick={onClickExperience}
-              />
-            </div>
-
-            <div id="fourth-line" style={{ marginTop: "15px" }}>
-              <img
-                alt="길찾기"
-                src="/images/submain_img/road.png"
-                style={{
-                  position: "relative",
-                  width: "360px",
-                  height: "70px",
-                }}
-                data-aos="fade-up"
-                onClick={onClickRoad}
               />
             </div>
 

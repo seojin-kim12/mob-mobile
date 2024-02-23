@@ -14,7 +14,25 @@
   background-size: cover;
   z-index: 0;
   filter: blur(0.3px);
-  animation: blink 1s steps(5) infinite; /* 반짝거리는 애니메이션 */
+  animation: blink 2s steps(5) infinite; /* 반짝거리는 애니메이션 */
+}
+
+.star3 {
+  position: absolute;
+  background-image: url("../../public/images/cursor_img/cursor_blue.png"); /*별 이미지로 추가함*/
+  background-size: cover;
+  z-index: 0;
+  filter: blur(0.3px);
+  animation: blink 3s steps(6) infinite; /* 반짝거리는 애니메이션 */
+}
+
+.star4 {
+  position: absolute;
+  background-image: url("../../public/images/main_img/mint_star.gif"); /*별 이미지로 추가함*/
+  background-size: cover;
+  z-index: 0;
+  filter: blur(0.3px);
+  animation: blink 3s steps(6) infinite; /* 반짝거리는 애니메이션 */
 }
 
 @keyframes blink {

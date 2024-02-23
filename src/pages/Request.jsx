@@ -75,6 +75,7 @@ const BodyWrapper = styled.div`
 `;
 
 const Title = styled.div`
+  margin-top: 10px;
   #titleText {
     color: #c71585;
     font-family: "HBIOS-SYS";
