@@ -426,10 +426,9 @@ const Review = () => {
           <p style={{ marginTop: "240px" }} onClick={onClickBack}>
             Main
           </p>
-          <p onClick={onClickSchedule}>Schedule</p>
           <p onClick={onClickRequest}>Request</p>
+          <p onClick={onClickSchedule}>Poster</p>
           <p onClick={onClickExperience}>Experience</p>
-          <p onClick={onClickRoadView}>RoadView</p>
         </nav>
         <img
           alt="바"

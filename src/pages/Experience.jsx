@@ -324,13 +324,12 @@ const Experience = () => {
           </Body>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "180px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "190px" }} onClick={onClickBack}>
             Main
           </p>
-          <p onClick={onClickSchedule}>Schedule</p>
-          <p onClick={onClickReview}>Review</p>
           <p onClick={onClickRequest}>Request</p>
-          <p onClick={onClickRoadView}>RoadView</p>
+          <p onClick={onClickSchedule}>Poster</p>
+          <p onClick={onClickReview}>Chatting</p>
         </nav>
         <img
           alt="바"

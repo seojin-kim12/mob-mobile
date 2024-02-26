@@ -190,13 +190,12 @@ const RequestCheck = () => {
           </Body>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "230px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "240px" }} onClick={onClickBack}>
             Main
           </p>
-          <p onClick={onClickSchedule}>Schedule</p>
-          <p onClick={onClickReview}>Review</p>
+          <p onClick={onClickSchedule}>Poster</p>
+          <p onClick={onClickReview}>Chatting</p>
           <p onClick={onClickExperience}>Experience</p>
-          <p onClick={onClickRoadView}>RoadView</p>
         </nav>
         <img
           alt="바"

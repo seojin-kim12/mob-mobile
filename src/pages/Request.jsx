@@ -296,6 +296,11 @@ const Request = () => {
       if (adminText.scrollHeight !== currentScrollHeight) {
         adminText.style.height = `${adminText.scrollHeight}px`;
       }
+      // 한 줄에 글자 수가 15자가 넘어갈 때 스크롤 높이 변경
+      if (adminText && adminText.value.length > 15) {
+        adminText.style.height = "auto";
+        adminText.style.height = `${adminText.scrollHeight}px`;
+      }
     }
   };
 
@@ -537,10 +542,9 @@ const Request = () => {
           <p style={{ marginTop: "90px" }} onClick={onClickBack}>
             Main
           </p>
-          <p onClick={onClickSchedule}>Schedule</p>
-          <p onClick={onClickReview}>Review</p>
+          <p onClick={onClickSchedule}>Poster</p>
+          <p onClick={onClickReview}>Chatting</p>
           <p onClick={onClickExperience}>Experience</p>
-          <p onClick={onClickRoadView}>RoadView</p>
         </nav>
         <img
           alt="바"

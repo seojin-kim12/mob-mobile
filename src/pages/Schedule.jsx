@@ -27,6 +27,20 @@ const GlobalStyle = createGlobalStyle`
   font-weight: normal; 
   font-style: normal; 
 }
+
+@font-face {
+  font-family: 'HBIOS-SYS';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BookkMyungjo-Bd';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
 `;
 
 const Container = styled.div`
@@ -107,7 +121,7 @@ const BodyWrapper = styled.div`
     position: relative;
     top: 50px;
     p {
-      font-family: "YiSunShinRegular";
+      font-family: "BookkMyungjo-Bd";
       color: #cc0000;
       font-size: 30px;
       margin-left: 270px;
@@ -126,8 +140,8 @@ const Schedule = () => {
     navigate("/Submain");
   };
 
-  const onClickSchedule = () => {
-    navigate("/Schedule");
+  const onClickChat = () => {
+    navigate("/Review");
   };
 
   const onClickRequest = () => {
@@ -138,55 +152,18 @@ const Schedule = () => {
     navigate("/Experience");
   };
 
-  const onClickRoadView = () => {
-    navigate("/Road");
-  };
-
   // 메뉴바 슬라이드
   const [menuOpen, setMenuOpen] = useState(false);
 
   //스크롤 애니메이션 추가하기 위해 넣음
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 1500,
     });
 
     // 맨 위로 이동하도록
     window.scrollTo(0, 0);
   }, []);
-
-  // 글자 수 제한
-  const [inputText, setInputText] = useState("");
-
-  const handleInputChange = (e) => {
-    if (e.target.value.length <= 22) {
-      setInputText(e.target.value);
-    }
-  };
-
-  // textarea 자동 높이 조절 부분(하지만 뒤로가기 눌렀을 때 textarea 높이가 줄어들도록은 구현 못 함)
-  const handleKeyDown = (e) => {
-    const adminText = target.current;
-
-    // 엔터키를 누를때마다 줄바꿈 되도록 하는 코드
-    if (adminText && e.key === "Enter") {
-      e.preventDefault(); // Prevent default behavior (adding a new line)
-
-      // 2줄 제한하는 코드
-      const currentLines = adminText.value.split("\n").length;
-      if (currentLines >= 2) {
-        return;
-      }
-
-      const currentScrollHeight = adminText.scrollHeight;
-      adminText.value = `${adminText.value}\n`;
-
-      // 스크롤 높이가 변경되었을 때만 높이 조정
-      if (adminText.scrollHeight !== currentScrollHeight) {
-        adminText.style.height = `${adminText.scrollHeight}px`;
-      }
-    }
-  };
 
   // 별 클래스
   class Star {
@@ -245,9 +222,9 @@ const Schedule = () => {
               alt="말풍선"
               src="/images/poster_img/star.svg"
               style={{ marginLeft: "230px", marginTop: "-63px" }}
-              data-aos="fade-left"
+              data-aos="fade-up"
             />
-            <p data-aos="fade-left">초 대 박</p>
+            <p data-aos="fade-up">초 대 박</p>
           </div>
           <div id="planet">
             <img
@@ -284,7 +261,7 @@ const Schedule = () => {
                 width: "150px",
                 opacity: "0.8",
               }}
-              data-aos="fade-left"
+              data-aos="fade-up"
             />
           </div>
           <div id="box">
@@ -292,6 +269,7 @@ const Schedule = () => {
               alt="box"
               src="/images/poster_img/box.svg"
               style={{
+                position: "relative",
                 zIndex: "3",
                 position: "relative",
                 marginTop: "-130px",
@@ -301,6 +279,44 @@ const Schedule = () => {
               }}
               data-aos="fade-left"
             />
+            <p
+              style={{
+                position: "relative",
+                zIndex: "10",
+                fontFamily: "YiSunShinRegular",
+                color: "#8B0000",
+                fontWeight: "bold",
+                marginTop: "-130px",
+
+                fontSize: "12px",
+              }}
+              data-aos="fade-up"
+            >
+              ⌈세상에는 아직 과학으로는 해명할 수 없는 괴기현상이 분명히
+              존재한다!⌋
+            </p>
+            <p
+              style={{
+                position: "relative",
+                zIndex: "10",
+                fontFamily: "YiSunShinRegular",
+
+                fontWeight: "bold",
+                marginTop: "-8px",
+                fontSize: "12px",
+              }}
+              data-aos="fade-up"
+            >
+              어쩔 수 없이 그저 공포의 어둠에 빠져 버린 당신!
+              <br />
+              그런 혼돈 속에 한 줄기 빛을 비출 수 있도록,
+              <br />
+              날마다 싸움을 계속하는 자들이 있다는 것을 당신은 알고 있을까..?
+              <br />
+              고민 상담부터 악령 퇴치까지 모든!
+              <br />
+              이곳, 영 기타 등등 상담소에서 해결해 드리겠습니다.
+            </p>
           </div>
           <div id="price">
             <img
@@ -323,7 +339,7 @@ const Schedule = () => {
                 zIndex: "3",
                 position: "relative",
                 marginTop: "-150px",
-                top: "-80px",
+                top: "-40px",
                 marginLeft: "290px",
                 width: "90px",
               }}
@@ -345,13 +361,12 @@ const Schedule = () => {
           </div>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "240px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "180px" }} onClick={onClickBack}>
             Main
           </p>
-          <p onClick={onClickSchedule}>Schedule</p>
           <p onClick={onClickRequest}>Request</p>
+          <p onClick={onClickChat}>Chatting</p>
           <p onClick={onClickExperience}>Experience</p>
-          <p onClick={onClickRoadView}>RoadView</p>
         </nav>
         <img
           alt="바"

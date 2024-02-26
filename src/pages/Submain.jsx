@@ -15,6 +15,13 @@ const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
   }
+
+  @font-face {
+    font-family: 'BookkMyungjo-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
 `;
 
 const Container = styled.div`
@@ -117,7 +124,7 @@ const Submain = () => {
       this.time = 0;
     }
     set() {
-      this.x = Math.random() * 300; //가로영역
+      this.x = Math.random() * 350; //가로영역
       this.y = Math.random() * 800; //세로 영역
       this.size = Math.random() * 25; // 별 크기
       this.time = Math.random() * 7;
@@ -235,21 +242,47 @@ const Submain = () => {
                 style={{
                   position: "relative",
                   width: "180px",
+                  marginLeft: "-180px",
                 }}
                 data-aos="fade-right"
                 onClick={onClickRequest}
               />
-              <img
-                alt="스케쥴"
-                src="/images/submain_img/schedule.png"
+              <div
+                id="poster"
                 style={{
                   position: "relative",
+                  marginTop: "-104.5px",
+                  marginLeft: "205px",
                   width: "170px",
-                  marginLeft: "10px",
+                  height: "100px",
+                  backgroundColor: "gray",
+                  border: "0.5px solid white",
                 }}
                 data-aos="fade-left"
                 onClick={onClickSchedule}
-              />
+              >
+                <p
+                  style={{
+                    fontFamily: "BookkMyungjo-Bd",
+                    fontSize: "24px",
+                    marginLeft: "-40px",
+                    textShadow: "1.5px 1.5px 1.5px rgba(0, 0, 0, 0.5)",
+                  }}
+                >
+                  포스터
+                </p>
+                <p
+                  style={{
+                    fontFamily: "BookkMyungjo-Bd",
+                    fontSize: "11px",
+                    color: "#8B0000",
+                    marginTop: "-16px",
+                    marginLeft: "30px",
+                  }}
+                >
+                  지금 당장 보러가기
+                </p>
+              </div>
             </div>
 
             <div id="third-line" style={{ marginTop: "15px" }}>
