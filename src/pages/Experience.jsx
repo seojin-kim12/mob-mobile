@@ -188,10 +188,6 @@ const Experience = () => {
     navigate("/Request");
   };
 
-  const onClickRoadView = () => {
-    navigate("/Road");
-  };
-
   // 메뉴바 슬라이드
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -324,7 +320,7 @@ const Experience = () => {
           </Body>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "190px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "180px" }} onClick={onClickBack}>
             Main
           </p>
           <p onClick={onClickRequest}>Request</p>

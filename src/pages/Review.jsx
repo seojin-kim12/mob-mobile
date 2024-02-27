@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 70vh;
+  min-height: 83vh;
   position: relative;
   text-align: center;
   background-size: cover;
@@ -46,7 +46,7 @@ const Container = styled.div`
     z-index: 99;
     display: flixed;
     align-items: center;
-    height: 105.2vh;
+    height: 106.5vh;
     background-color: rgba(0, 0, 0, 0.9);
     margin-left: 590px;
     margin-top: -730px;
@@ -86,18 +86,18 @@ const Title = styled.div`
 `;
 
 const Chatboxes = styled.div`
-  margin-top: -515px;
+  margin-top: -535px;
   height: 480px;
   overflow-y: auto;
   overflow-x: hidden;
 `;
 const Chatbox = styled.div`
+  margin-top: 20px;
   #box {
     position: relative;
     width: 190px;
     height: auto;
     margin-left: 80px;
-    margin-top: 0px;
     border: 0.5mm solid #ab8dd8;
     background-color: rgba(171, 141, 216, 0.3);
     font-family: "HBIOS-SYS";
@@ -116,6 +116,7 @@ const Chatbox = styled.div`
 const ChatWrite = styled.div`
   position: fixed;
   z-index: 2;
+  margin-top: 20px;
 
   #content {
     margin-top: -55px;
@@ -157,10 +158,6 @@ const Review = () => {
     navigate("/Experience");
   };
 
-  const onClickRoadView = () => {
-    navigate("/Road");
-  };
-
   // 메뉴바 슬라이드
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -176,34 +173,9 @@ const Review = () => {
 
   // 글자 수 제한
   const [inputText, setInputText] = useState("");
-
   const handleInputChange = (e) => {
-    if (e.target.value.length <= 22) {
+    if (e.target.value.length <= 16) {
       setInputText(e.target.value);
-    }
-  };
-
-  // textarea 자동 높이 조절 부분(하지만 뒤로가기 눌렀을 때 textarea 높이가 줄어들도록은 구현 못 함)
-  const handleKeyDown = (e) => {
-    const adminText = target.current;
-
-    // 엔터키를 누를때마다 줄바꿈 되도록 하는 코드
-    if (adminText && e.key === "Enter") {
-      e.preventDefault(); // Prevent default behavior (adding a new line)
-
-      // 2줄 제한하는 코드
-      const currentLines = adminText.value.split("\n").length;
-      if (currentLines >= 2) {
-        return;
-      }
-
-      const currentScrollHeight = adminText.scrollHeight;
-      adminText.value = `${adminText.value}\n`;
-
-      // 스크롤 높이가 변경되었을 때만 높이 조정
-      if (adminText.scrollHeight !== currentScrollHeight) {
-        adminText.style.height = `${adminText.scrollHeight}px`;
-      }
     }
   };
 
@@ -264,10 +236,10 @@ const Review = () => {
             <ChatWrite>
               <div id="content">
                 <textarea
-                  ref={target}
                   id="target"
                   placeholder="자유롭게 채팅해 주세요."
-                  onKeyDown={handleKeyDown}
+                  value={inputText}
+                  onChange={handleInputChange}
                 />
                 <img
                   id="chat_btn"
@@ -296,7 +268,7 @@ const Review = () => {
                   left: "-100px",
                 }}
               />
-              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
+              <div id="box">하하하하하하하하하하하하ㅏ핳</div>
             </Chatbox>
 
             <Chatbox>
@@ -310,120 +282,12 @@ const Review = () => {
                   left: "-100px",
                 }}
               />
-              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-            </Chatbox>
-
-            <Chatbox>
-              <img
-                alt="채팅 전체 박스"
-                src="/images/cursor_img/cursor_pink.png"
-                style={{
-                  position: "relative",
-                  width: "60px",
-                  top: "40px",
-                  left: "-100px",
-                }}
-              />
-              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-            </Chatbox>
-
-            <Chatbox>
-              <img
-                alt="채팅 전체 박스"
-                src="/images/cursor_img/cursor_pink.png"
-                style={{
-                  position: "relative",
-                  width: "60px",
-                  top: "40px",
-                  left: "-100px",
-                }}
-              />
-              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-            </Chatbox>
-
-            <Chatbox>
-              <img
-                alt="채팅 전체 박스"
-                src="/images/cursor_img/cursor_pink.png"
-                style={{
-                  position: "relative",
-                  width: "60px",
-                  top: "40px",
-                  left: "-100px",
-                }}
-              />
-              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-            </Chatbox>
-
-            <Chatbox>
-              <img
-                alt="채팅 전체 박스"
-                src="/images/cursor_img/cursor_pink.png"
-                style={{
-                  position: "relative",
-                  width: "60px",
-                  top: "40px",
-                  left: "-100px",
-                }}
-              />
-              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-            </Chatbox>
-            <Chatbox>
-              <img
-                alt="채팅 전체 박스"
-                src="/images/cursor_img/cursor_pink.png"
-                style={{
-                  position: "relative",
-                  width: "60px",
-                  top: "40px",
-                  left: "-100px",
-                }}
-              />
-              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-            </Chatbox>
-            <Chatbox>
-              <img
-                alt="채팅 전체 박스"
-                src="/images/cursor_img/cursor_pink.png"
-                style={{
-                  position: "relative",
-                  width: "60px",
-                  top: "40px",
-                  left: "-100px",
-                }}
-              />
-              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-            </Chatbox>
-            <Chatbox>
-              <img
-                alt="채팅 전체 박스"
-                src="/images/cursor_img/cursor_pink.png"
-                style={{
-                  position: "relative",
-                  width: "60px",
-                  top: "40px",
-                  left: "-100px",
-                }}
-              />
-              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
-            </Chatbox>
-            <Chatbox>
-              <img
-                alt="채팅 전체 박스"
-                src="/images/cursor_img/cursor_pink.png"
-                style={{
-                  position: "relative",
-                  width: "60px",
-                  top: "40px",
-                  left: "-100px",
-                }}
-              />
-              <div id="box">하하하하하하하하하하하하ㅏ핳하하</div>
+              <div id="box">하하하하하하하하하하하하ㅏ핳</div>
             </Chatbox>
           </Chatboxes>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "240px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "250px" }} onClick={onClickBack}>
             Main
           </p>
           <p onClick={onClickRequest}>Request</p>

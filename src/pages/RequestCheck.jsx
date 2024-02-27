@@ -102,10 +102,6 @@ const RequestCheck = () => {
     navigate("/Experience");
   };
 
-  const onClickRoadView = () => {
-    navigate("/Road");
-  };
-
   // 메뉴바 슬라이드
   const [menuOpen, setMenuOpen] = useState(false);
 

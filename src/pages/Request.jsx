@@ -258,10 +258,6 @@ const Request = () => {
     navigate("/Experience");
   };
 
-  const onClickRoadView = () => {
-    navigate("/Road");
-  };
-
   // 체크박스 하나만 선택
   const [selectedCourse, setSelectedCourse] = useState("");
   const target = useRef();
@@ -539,7 +535,7 @@ const Request = () => {
           </Button2>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "90px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "80px" }} onClick={onClickBack}>
             Main
           </p>
           <p onClick={onClickSchedule}>Poster</p>
