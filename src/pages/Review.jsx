@@ -24,10 +24,10 @@ const GlobalStyle = createGlobalStyle`
 }
 
   @font-face {
-      font-family: 'KCCChassam';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCChassam.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
+    font-family: 'YiSunShinRegular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YiSunShinRegular.woff') format('woff');
+    font-weight: normal; 
+    font-style: normal; 
   }
 `;
 
@@ -87,13 +87,13 @@ const BodyWrapper = styled.div`
 `;
 
 const Title = styled.div`
-  margin-top: 50px;
+  margin-top: 30px;
   color: #d2b9f8;
   font-family: 'PuradakGentleGothicR';
   font-size: 30px;
   font-weight: bold;
   text-shadow: 1.5px 1.5px 0 black;
-  z-index: 1;
+  z-index: 7;
 `;
 
 const Review = () => {
@@ -158,7 +158,7 @@ const Review = () => {
 
   // 별 애니메이션
   useEffect(() => {
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 30; i++) {
       // 별 개수 여기서 조정하면 돼요!!
       const newStar = new Star();
       newStar.set();
@@ -210,12 +210,24 @@ const toggleInfo = () => {
       <GlobalStyle />
       <Container id="main">
         <BodyWrapper>
-            <Title data-aos="fade-up">오시는 길</Title>
+            <Title data-aos="fade-down">⌈오시는 길⌋</Title>
+            <div id="adver">
+              <img
+                  alt="경고"
+                  src="/images/adver.png"
+                  style={{
+                    width: "70px",
+                    marginTop: "-30px",
+                    marginLeft: "-290px",
+                    zIndex: "12"
+                  }}
+                  data-aos="fade-right"
+                />
+            </div>
             <Map
               center={{ lat: 37.607410, lng:  127.042692 }}
-              style={{ width: "350px", height: "300px", marginTop: "30px", zIndex: '6' }}
+              style={{ width: "350px", height: "300px", marginTop: "-5px", zIndex: '5' }} // 맵의 z-index 값을 5로 변경
               level={3}
-              data-aos="fade-right"
             >
 
             {/* 대표 마크 */}
@@ -226,7 +238,7 @@ const toggleInfo = () => {
             >
               {isOpen && (
                 <div style={{ width: "150px" }}>
-                  <div style={{ padding: "7px", color: "#000",  fontFamily: 'KCCChassam', fontSize: '13px', fontWeight: 'bold' }}>영 기타 등등 예비 상담소</div>
+                  <div style={{ padding: "7px", color: "#000",  fontFamily: 'HBIOS-SYS', fontSize: '10.5px', fontWeight: 'bold' }}>영•기타등등 예비 상담소</div>
                 </div>
               )}
               </MapMarker>
@@ -247,7 +259,7 @@ const toggleInfo = () => {
                 />
               ))}
             </Map>
-
+            
             <div id="road">
               <img
                 alt="길"
@@ -258,10 +270,56 @@ const toggleInfo = () => {
                   marginTop: "20px",
                   marginLeft: "170px",
                   width: "180px",
+                  height: "200px",
                   opacity: "0.8",
                 }}
-                data-aos="fade-left"
+                data-aos="flip-up"
               />
+          </div>
+
+          <div id="intro"                 
+            style={{
+              position: "relative",
+              marginTop: "-203.5px",
+              width: "155px",
+              height: "196px",
+              backgroundColor: "white",
+              border: "2.5px solid #d2b9f8",
+              opacity: "0.5",
+              zIndex: "7"
+            }}
+            data-aos="flip-down"
+             >
+            <p
+              style={{
+                position: "relative",
+                zIndex: "10",
+                fontFamily: "YiSunShinRegular",
+                color: "#8B0000",
+                fontWeight: "bold",
+                marginTop: "20px",
+                fontSize: "14px",
+              }}
+              data-aos="fade-up"
+            >
+              환영합니다!
+            </p>
+            <p
+                style={{
+                  position: "relative",
+                  zIndex: "10",
+                  fontFamily: "YiSunShinRegular",
+                  fontSize: "12.5px",
+                }}
+                data-aos="fade-up"
+              >
+              이곳은 영•기타등등 상담소로<br/> 오시는 방법에 대한 안내입니다.
+              <br/>
+              <br/>
+              이곳으로 오시는 모든 분들께, <br/>
+              고민 상담부터 악령 퇴치까지!! <br/><br/>
+              모든 근심을 해결해 드릴 것을<br/> 약속드립니다.
+            </p>
           </div>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>

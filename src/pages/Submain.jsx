@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components"; // 이 부분에서 createGlobalStyle만 import하도록 수정
 import { useNavigate } from "react-router-dom";
 // 다른 페이지로 자연스럽게 넘어가기 위해 추가함
