@@ -124,7 +124,7 @@ const Submain = () => {
     }
     set() {
       this.x = Math.random() * 350; //가로영역
-      this.y = Math.random() * 700; //세로 영역
+      this.y = Math.random() * 800; //세로 영역
       this.size = Math.random() * 25; // 별 크기
       this.time = Math.random() * 7;
 

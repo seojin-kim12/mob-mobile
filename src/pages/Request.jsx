@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 120vh;
+  height: 130vh;
   position: relative;
   text-align: center;
   background-color: black;
