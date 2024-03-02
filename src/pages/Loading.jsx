@@ -63,7 +63,7 @@ const Loading = () => {
       <GlobalStyle />
       <Container>
         <BodyWrapper>
-          <div align="center" style={{ marginTop: "100px" }}>
+          <div align="center" style={{ marginTop: "150px" }}>
             <img
               src="/images/loading_img/loading_count.gif"
               alt="사진"
