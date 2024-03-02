@@ -286,24 +286,62 @@ const Submain = () => {
             </div>
 
             <div id="third-line" style={{ marginTop: "15px" }}>
-              <img
-                alt="리뷰 남기기"
-                src="/images/submain_img/review.png"
-                style={{
-                  position: "relative",
-                  width: "160px",
-                }}
-                data-aos="fade-right"
-                onClick={onClickReview}
-              />
+              <div
+                  id="road"
+                  style={{
+                    position: "relative",
+                    marginLeft: "15.5px",
+                    width: "156.5px",
+                    height: "90px",
+                    backgroundColor: "#ffd4a4",
+                    border: "1.5px solid white",
+                  }}
+                  data-aos="fade-right"
+                  onClick={onClickReview}
+                >
+                  <p
+                    style={{
+                      marginTop: "15px",
+                      fontFamily: "BookkMyungjo-Bd",
+                      fontSize: "20px",
+                      color: "#de255c",
+                      textShadow: "1.5px 1.5px 1.5px rgba(0, 0, 0, 0.5)",
+                    }}
+                  >
+                    ⌈오시는 길⌋
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "BookkMyungjo-Bd",
+                      fontSize: "10px",
+                      color: "#6428bf",
+                      marginTop: "-15px",
+                      marginLeft: "-30px"
+                    }}
+                  >
+                    영•기타 등등 상담소
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: "BookkMyungjo-Bd",
+                      fontSize: "10px",
+                      marginTop: "-5px",
+                      marginLeft: "30px"
+                    }}
+                  >
+                    위치 확인하러 가기
+                  </p>
+              </div>
+
               <img
                 alt="영제거 경험"
                 src="/images/submain_img/experience.png"
                 style={{
                   position: "relative",
                   width: "190px",
-                  marginLeft: "10px",
-                  top: "-18px",
+                  marginLeft: "172px",
+                  marginTop: "-90px",
+                  top: "-16px"
                 }}
                 data-aos="fade-left"
                 onClick={onClickExperience}

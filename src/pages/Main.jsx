@@ -355,7 +355,7 @@ const Main = () => {
                         verticalAlign: "bottom",
                       }}
                     />
-                    <span className="digit">000000000000015</span>
+                    <span className="digit">000000000323575</span>
                   </span>{" "}
                   번째 손님입니다.
                 </div>

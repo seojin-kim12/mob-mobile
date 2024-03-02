@@ -108,6 +108,10 @@ const Review = () => {
     navigate("/Schedule");
   };
 
+  const onClickReview = () => {
+    navigate("/Review");
+  };
+
   const onClickRequest = () => {
     navigate("/Request");
   };
@@ -323,11 +327,12 @@ const toggleInfo = () => {
           </div>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "250px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "215px" }} onClick={onClickBack}>
             Main
           </p>
           <p onClick={onClickRequest}>Request</p>
           <p onClick={onClickSchedule}>Poster</p>
+          <p onClick={onClickReview}>Load</p>
           <p onClick={onClickExperience}>Experience</p>
         </nav>
         <img

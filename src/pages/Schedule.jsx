@@ -135,12 +135,16 @@ const BodyWrapper = styled.div`
 const Schedule = () => {
   const navigate = useNavigate();
   const target = useRef();
-
+  
   const onClickBack = () => {
     navigate("/Submain");
   };
 
-  const onClickChat = () => {
+  const onClickSchedule = () => {
+    navigate("/Schedule");
+  };
+
+  const onClickReview = () => {
     navigate("/Review");
   };
 
@@ -151,7 +155,6 @@ const Schedule = () => {
   const onClickExperience = () => {
     navigate("/Experience");
   };
-
   // 메뉴바 슬라이드
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -365,7 +368,8 @@ const Schedule = () => {
             Main
           </p>
           <p onClick={onClickRequest}>Request</p>
-          <p onClick={onClickChat}>Chatting</p>
+          <p onClick={onClickSchedule}>Poster</p>
+          <p onClick={onClickReview}>Load</p>
           <p onClick={onClickExperience}>Experience</p>
         </nav>
         <img

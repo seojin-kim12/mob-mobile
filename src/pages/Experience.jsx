@@ -188,6 +188,10 @@ const Experience = () => {
     navigate("/Request");
   };
 
+  const onClickExperience = () => {
+    navigate("/Experience");
+  };
+
   // 메뉴바 슬라이드
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -325,7 +329,8 @@ const Experience = () => {
           </p>
           <p onClick={onClickRequest}>Request</p>
           <p onClick={onClickSchedule}>Poster</p>
-          <p onClick={onClickReview}>Chatting</p>
+          <p onClick={onClickReview}>Load</p>
+          <p onClick={onClickExperience}>Experience</p>
         </nav>
         <img
           alt="바"

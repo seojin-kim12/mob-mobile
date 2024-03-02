@@ -254,6 +254,10 @@ const Request = () => {
     navigate("/Review");
   };
 
+  const onClickRequest = () => {
+    navigate("/Request");
+  };
+
   const onClickExperience = () => {
     navigate("/Experience");
   };
@@ -538,8 +542,9 @@ const Request = () => {
           <p style={{ marginTop: "80px" }} onClick={onClickBack}>
             Main
           </p>
+          <p onClick={onClickRequest}>Request</p>
           <p onClick={onClickSchedule}>Poster</p>
-          <p onClick={onClickReview}>Chatting</p>
+          <p onClick={onClickReview}>Load</p>
           <p onClick={onClickExperience}>Experience</p>
         </nav>
         <img
