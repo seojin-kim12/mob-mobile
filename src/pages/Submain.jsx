@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 110vh;
+  height: 120vh;
   position: relative;
   text-align: center;
   background-color: black;
@@ -48,7 +48,6 @@ const Container = styled.div`
 `;
 
 const BodyWrapper = styled.div`
-  min-height: calc(100vh - 145px);
   z-index: 3;
 `;
 
