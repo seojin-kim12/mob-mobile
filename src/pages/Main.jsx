@@ -38,7 +38,7 @@ const Container = styled.div`
   z-index: 2;
   display: flex;
   flex-direction: column;
-  height: 110vh;
+  height: 105vh;
   position: relative;
   text-align: center;
   background-image: url("/images/main_img/main_bg.png");

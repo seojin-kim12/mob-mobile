@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 110vh;
+  height: 100vh;
   position: relative;
   text-align: center;
   background-size: cover;

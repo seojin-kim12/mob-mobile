@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 120vh;
+  height: 130vh;
   position: relative;
   text-align: center;
   background-color: black;
@@ -125,7 +125,7 @@ const Submain = () => {
     }
     set() {
       this.x = Math.random() * 350; //가로영역
-      this.y = Math.random() * 800; //세로 영역
+      this.y = Math.random() * 900; //세로 영역
       this.size = Math.random() * 25; // 별 크기
       this.time = Math.random() * 7;
 
