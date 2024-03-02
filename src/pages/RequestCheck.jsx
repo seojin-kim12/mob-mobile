@@ -35,36 +35,6 @@ const Container = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-
-  nav {
-    z-index: 99;
-    display: flixed;
-    align-items: center;
-    height: 110vh;
-    width: 0px;
-    background-color: rgba(0, 0, 0, 0.9);
-    margin-left: 590px;
-    margin-top: -500px;
-
-    p {
-      display: none;
-      align-items: center;
-      font-family: "HBIOS-SYS";
-      color: white;
-      font-size: 1.5em;
-      margin-left: 30px;
-      margin-top: 50px;
-    }
-
-    transition: 0.6s ease;
-    &.active {
-      margin-left: 190px;
-      width: 200px;
-      p {
-        display: flex;
-      }
-    }
-  }
 `;
 
 const BodyWrapper = styled.div`
@@ -84,27 +54,6 @@ const Body = styled.div`
 `;
 
 const RequestCheck = () => {
-  const navigate = useNavigate();
-
-  const onClickBack = () => {
-    navigate("/Submain");
-  };
-
-  const onClickSchedule = () => {
-    navigate("/Schedule");
-  };
-
-  const onClickReview = () => {
-    navigate("/Review");
-  };
-
-  const onClickRequest = () => {
-    navigate("/Request");
-  };
-
-  const onClickExperience = () => {
-    navigate("/Experience");
-  };
 
   // 메뉴바 슬라이드
   const [menuOpen, setMenuOpen] = useState(false);
@@ -189,30 +138,6 @@ const RequestCheck = () => {
             </div>
           </Body>
         </BodyWrapper>
-        <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "160px" }} onClick={onClickBack}>
-            Main
-          </p>
-          <p onClick={onClickRequest}>Request</p>
-          <p onClick={onClickSchedule}>Poster</p>
-          <p onClick={onClickReview}>Load</p>
-          <p onClick={onClickExperience}>Experience</p>
-        </nav>
-        <img
-          alt="바"
-          src={imageSrc}
-          style={{
-            width: "30px",
-            position: "fixed",
-            marginTop: "20px",
-            marginLeft: "340px",
-            zIndex: 100,
-          }}
-          onClick={() => {
-            setMenuOpen((menuOpen) => !menuOpen);
-            handleClick();
-          }}
-        />
       </Container>
     </motion.div>
   );
