@@ -5,20 +5,30 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
+const {kakao} = window;
 
 const GlobalStyle = createGlobalStyle`
-@font-face {
-  font-family: 'HBIOS-SYS';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+  @font-face {
+    font-family: 'HBIOS-SYS';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'PuradakGentleGothicR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.1/PuradakGentleGothicR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
-@font-face {
-  font-family: 'WandohopeR';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/WandohopeR.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+
+  @font-face {
+      font-family: 'KCCChassam';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCChassam.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+  }
 `;
 
 const Container = styled.div`
@@ -77,65 +87,13 @@ const BodyWrapper = styled.div`
 `;
 
 const Title = styled.div`
-  margin-top: 30px;
+  margin-top: 50px;
   color: #d2b9f8;
-  font-family: "WandohopeR";
+  font-family: 'PuradakGentleGothicR';
   font-size: 30px;
   font-weight: bold;
+  text-shadow: 1.5px 1.5px 0 black;
   z-index: 1;
-`;
-
-const Chatboxes = styled.div`
-  margin-top: -535px;
-  height: 480px;
-  overflow-y: auto;
-  overflow-x: hidden;
-`;
-const Chatbox = styled.div`
-  margin-top: 20px;
-  #box {
-    position: relative;
-    width: 190px;
-    height: auto;
-    margin-left: 80px;
-    border: 0.5mm solid #ab8dd8;
-    background-color: rgba(171, 141, 216, 0.3);
-    font-family: "HBIOS-SYS";
-    text-align: left;
-    font-size: 13px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 5px;
-    color: white;
-    border-radius: 5px;
-  }
-  margin-left: -5px;
-  margin-bottom: -40px;
-`;
-
-const ChatWrite = styled.div`
-  position: fixed;
-  z-index: 2;
-  margin-top: 20px;
-
-  #content {
-    margin-top: -55px;
-    margin-left: 15px;
-  }
-
-  textarea {
-    width: 240px;
-    height: 25px;
-    margin-left: 5px;
-    margin-top: 50px;
-    border: 0.5mm solid #ab8dd8;
-    background-color: #8f67cb;
-    font-family: "HBIOS-SYS";
-    text-align: left;
-    font-size: 13px;
-    padding-top: 5px;
-    color: white;
-  }
 `;
 
 const Review = () => {
@@ -171,14 +129,6 @@ const Review = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // 글자 수 제한
-  const [inputText, setInputText] = useState("");
-  const handleInputChange = (e) => {
-    if (e.target.value.length <= 16) {
-      setInputText(e.target.value);
-    }
-  };
-
   // 별 클래스
   class Star {
     constructor() {
@@ -208,12 +158,47 @@ const Review = () => {
 
   // 별 애니메이션
   useEffect(() => {
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 20; i++) {
       // 별 개수 여기서 조정하면 돼요!!
       const newStar = new Star();
       newStar.set();
     }
   }, []);
+
+// 여러개 마커 표시하기
+const positions = [
+  {
+    title: "영1",
+    latlng: { lat: 37.607063, lng: 127.042191 },
+  },
+  {
+    title: "영2",
+    latlng: { lat: 37.607162, lng:127.043942 },
+  },
+  {
+    title: "영3",
+    latlng: { lat: 37.607796, lng: 127.043181 },
+  },
+  {
+    title: "영4",
+    latlng: { lat: 37.606895, lng:127.043163 },
+  },
+  {
+    title: "영5",
+    latlng: { lat: 37.6079, lng: 127.042 },
+  },
+  {
+    title: "영6",
+    latlng: { lat: 37.606302, lng:127.041209 },
+  },
+]
+
+// 마커 클릭 이벤트
+const [isOpen, setIsOpen] = useState(false);
+
+const toggleInfo = () => {
+  setIsOpen(!isOpen);
+};
 
   return (
     // 다른 페이지로 자연스럽게 넘어가기 위해 추가함
@@ -225,66 +210,59 @@ const Review = () => {
       <GlobalStyle />
       <Container id="main">
         <BodyWrapper>
-          <Title data-aos="flip-up">チャットしてください</Title>
+            <Title data-aos="fade-up">오시는 길</Title>
+            <Map
+              center={{ lat: 37.607410, lng:  127.042692 }}
+              style={{ width: "350px", height: "300px", marginTop: "30px", zIndex: '6' }}
+              level={3}
+              data-aos="fade-right"
+            >
 
-          <img
-            alt="채팅 전체 박스"
-            src="/images/review_img/reviewbox_l.svg"
-            style={{ width: "300px", marginTop: "20px", zIndex: "1" }}
-          />
-          <Chatboxes>
-            <ChatWrite>
-              <div id="content">
-                <textarea
-                  id="target"
-                  placeholder="자유롭게 채팅해 주세요."
-                  value={inputText}
-                  onChange={handleInputChange}
-                />
-                <img
-                  id="chat_btn"
-                  alt="채팅 버튼"
-                  src="/images/review_img/chat_btn.svg"
-                  style={{
-                    position: "relative",
-                    width: "25px",
-                    marginLeft: "-33px",
-                    top: "-5px",
-                    cursor: "pointer",
+            {/* 대표 마크 */}
+            <MapMarker
+              position={{ lat: 37.607410, lng:  127.042692 }}
+              clickable={true}
+              onClick={toggleInfo}
+            >
+              {isOpen && (
+                <div style={{ width: "150px" }}>
+                  <div style={{ padding: "7px", color: "#000",  fontFamily: 'KCCChassam', fontSize: '13px', fontWeight: 'bold' }}>영 기타 등등 예비 상담소</div>
+                </div>
+              )}
+              </MapMarker>
+
+              {/* 마크 여러개 표시 */}
+              {positions.map((position, index) => (
+                <MapMarker
+                  key={`${position.title}-${position.latlng}`}
+                  position={position.latlng} // 마커를 표시할 위치
+                  image={{
+                    src: "/images/cursor_img/cursor_red.png", // 마커이미지의 주소입니다
+                    size: {
+                      width: 30,
+                      height: 30
+                    }, // 마커이미지의 크기입니다
                   }}
-                  onClick={() => window.location.reload()}
+                  title={position.title} // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
                 />
-              </div>
-            </ChatWrite>
+              ))}
+            </Map>
 
-            <Chatbox>
+            <div id="road">
               <img
-                alt="채팅 전체 박스"
-                src="/images/cursor_img/cursor_pink.png"
+                alt="길"
+                src="/images/poster_img/road.png"
                 style={{
+                  zIndex: "3",
                   position: "relative",
-                  width: "60px",
-                  top: "40px",
-                  left: "-100px",
+                  marginTop: "20px",
+                  marginLeft: "170px",
+                  width: "180px",
+                  opacity: "0.8",
                 }}
+                data-aos="fade-left"
               />
-              <div id="box">하하하하하하하하하하하하ㅏ핳</div>
-            </Chatbox>
-
-            <Chatbox>
-              <img
-                alt="채팅 전체 박스"
-                src="/images/cursor_img/cursor_pink.png"
-                style={{
-                  position: "relative",
-                  width: "60px",
-                  top: "40px",
-                  left: "-100px",
-                }}
-              />
-              <div id="box">하하하하하하하하하하하하ㅏ핳</div>
-            </Chatbox>
-          </Chatboxes>
+          </div>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
           <p style={{ marginTop: "250px" }} onClick={onClickBack}>

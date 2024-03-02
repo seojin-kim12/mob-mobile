@@ -102,7 +102,7 @@ const BodyWrapper = styled.div`
     font-size: 35px;
     margin-top: 30px;
     margin-left: -80px;
-    text-stroke: 1.5px black;
+    text-shadow: 1.5px 1.5px 0 black;
     opacity: 0.8;
   }
 
@@ -113,7 +113,7 @@ const BodyWrapper = styled.div`
     font-size: 15px;
     margin-top: 0px;
     margin-left: -145px;
-    text-stroke: 1.5px black;
+    text-shadow: 1.5px 1.5px 0 black;
     opacity: 0.8;
   }
 
