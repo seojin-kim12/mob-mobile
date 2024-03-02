@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 83vh;
+  height: 100vh;
   position: relative;
   text-align: center;
   background-size: cover;
@@ -56,7 +56,7 @@ const Container = styled.div`
     z-index: 99;
     display: flixed;
     align-items: center;
-    height: 106.5vh;
+    height: 120vh;
     background-color: rgba(0, 0, 0, 0.9);
     margin-left: 590px;
     margin-top: -730px;
@@ -327,7 +327,7 @@ const toggleInfo = () => {
           </div>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "215px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "235px" }} onClick={onClickBack}>
             Main
           </p>
           <p onClick={onClickRequest}>Request</p>

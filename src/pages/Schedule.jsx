@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
+  height: 110vh;
   position: relative;
   text-align: center;
   background-size: cover;
@@ -68,7 +68,7 @@ const Container = styled.div`
     z-index: 99;
     display: flixed;
     align-items: center;
-    height: 98vh;
+    height: 120vh;
     background-color: rgba(0, 0, 0, 0.9);
     margin-left: 590px;
     margin-top: -730px;
