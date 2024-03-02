@@ -40,11 +40,11 @@ const Container = styled.div`
     z-index: 99;
     display: flixed;
     align-items: center;
-    height: 110vh;
+    height: 120vh;
     width: 0px;
     background-color: rgba(0, 0, 0, 0.9);
     margin-left: 590px;
-    margin-top: -320px;
+    margin-top: -120px;
 
     p {
       display: none;
