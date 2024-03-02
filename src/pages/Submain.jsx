@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 115vh;
+  height: 100vh;
   position: relative;
   text-align: center;
   background-color: black;
@@ -48,6 +48,7 @@ const Container = styled.div`
 `;
 
 const BodyWrapper = styled.div`
+  min-height: calc(100vh - 145px);
   z-index: 3;
 `;
 
@@ -102,10 +103,6 @@ const Submain = () => {
     navigate("/Experience");
   };
 
-  const onClickBack = () => {
-    navigate("/Main");
-  };
-
   //스크롤 애니메이션 추가하기 위해 넣음
   useEffect(() => {
     AOS.init({
@@ -124,7 +121,7 @@ const Submain = () => {
     }
     set() {
       this.x = Math.random() * 350; //가로영역
-      this.y = Math.random() * 800; //세로 영역
+      this.y = Math.random() * 700; //세로 영역
       this.size = Math.random() * 25; // 별 크기
       this.time = Math.random() * 7;
 
@@ -374,10 +371,6 @@ const Submain = () => {
               />
             </div>
           </Body>
-          <Button3 data-aos="fade-up" onClick={onClickBack}>
-            {" "}
-            B A C K
-          </Button3>
         </BodyWrapper>
       </Container>
     </motion.div>
