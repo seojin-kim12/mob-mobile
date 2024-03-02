@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 110vh;
   position: relative;
   text-align: center;
   background-color: black;
@@ -48,7 +48,6 @@ const Container = styled.div`
 `;
 
 const BodyWrapper = styled.div`
-  min-height: calc(100vh - 145px);
   z-index: 3;
 `;
 
@@ -101,6 +100,10 @@ const Submain = () => {
 
   const onClickExperience = () => {
     navigate("/Experience");
+  };
+
+  const onClickBack = () => {
+    navigate("/Main");
   };
 
   //스크롤 애니메이션 추가하기 위해 넣음
@@ -371,6 +374,11 @@ const Submain = () => {
               />
             </div>
           </Body>
+          <Button3 data-aos="fade-up" onClick={onClickBack}>
+            {" "}
+            B A C K
+          </Button3>
+          <div style={{height: "100px"}}></div>
         </BodyWrapper>
       </Container>
     </motion.div>
