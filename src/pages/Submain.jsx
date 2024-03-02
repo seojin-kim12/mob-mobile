@@ -174,7 +174,6 @@ const Submain = () => {
                 alt="사진"
                 src="/images/submain_img/title.png"
                 style={{ width: "300px" }}
-                data-aos="flip-up"
               />
             </div>
 
@@ -190,7 +189,6 @@ const Submain = () => {
                 alt="사진"
                 src="/images/submain_img/ekubo1.gif"
                 style={{ width: "50px" }}
-                data-aos="fade-right"
               />
             </div>
 
@@ -207,7 +205,6 @@ const Submain = () => {
                 alt="사진"
                 src="/images/submain_img/ekubo2.gif"
                 style={{ width: "50px" }}
-                data-aos="fade-left"
               />
             </div>
 
@@ -219,7 +216,6 @@ const Submain = () => {
                   position: "relative",
                   width: "220px",
                 }}
-                data-aos="fade-right"
               />
               <img
                 alt="프로필사진"
@@ -229,7 +225,6 @@ const Submain = () => {
                   width: "128px",
                   marginLeft: "10px",
                 }}
-                data-aos="fade-left"
               />
             </div>
 
@@ -243,7 +238,6 @@ const Submain = () => {
                   width: "180px",
                   marginLeft: "-180px",
                 }}
-                data-aos="fade-right"
                 onClick={onClickRequest}
               />
               <div
@@ -257,7 +251,6 @@ const Submain = () => {
                   backgroundColor: "gray",
                   border: "0.5px solid white",
                 }}
-                data-aos="fade-left"
                 onClick={onClickSchedule}
               >
                 <p
@@ -295,7 +288,6 @@ const Submain = () => {
                     backgroundColor: "#ffd4a4",
                     border: "1.5px solid white",
                   }}
-                  data-aos="fade-right"
                   onClick={onClickReview}
                 >
                   <p
@@ -342,7 +334,6 @@ const Submain = () => {
                   marginTop: "-90px",
                   top: "-16px"
                 }}
-                data-aos="fade-left"
                 onClick={onClickExperience}
               />
             </div>
