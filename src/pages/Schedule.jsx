@@ -100,7 +100,7 @@ const BodyWrapper = styled.div`
     font-family: "TTHakgyoansimTtwimteulR";
     color: #ffd700;
     font-size: 35px;
-    margin-top: 30px;
+    margin-top: 25px;
     margin-left: -80px;
     text-shadow: 1.5px 1.5px 0 black;
     opacity: 0.8;

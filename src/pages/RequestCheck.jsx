@@ -44,7 +44,7 @@ const Container = styled.div`
     width: 0px;
     background-color: rgba(0, 0, 0, 0.9);
     margin-left: 590px;
-    margin-top: -400px;
+    margin-top: -500px;
 
     p {
       display: none;
