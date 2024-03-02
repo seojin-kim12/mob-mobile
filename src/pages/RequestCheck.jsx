@@ -40,7 +40,7 @@ const Container = styled.div`
     z-index: 99;
     display: flixed;
     align-items: center;
-    height: 130vh;
+    height: 143vh;
     width: 0px;
     background-color: rgba(0, 0, 0, 0.9);
     margin-left: 590px;
@@ -190,7 +190,7 @@ const RequestCheck = () => {
           </Body>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "180px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "160px" }} onClick={onClickBack}>
             Main
           </p>
           <p onClick={onClickRequest}>Request</p>
