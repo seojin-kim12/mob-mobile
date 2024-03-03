@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 105vh;
+  height: 112vh;
   position: relative;
   text-align: center;
   background-size: cover;
@@ -100,7 +100,7 @@ const BodyWrapper = styled.div`
     font-family: "TTHakgyoansimTtwimteulR";
     color: #ffd700;
     font-size: 35px;
-    margin-top: 25px;
+    margin-top: 35px;
     margin-left: -80px;
     text-shadow: 1.5px 1.5px 0 black;
     opacity: 0.8;

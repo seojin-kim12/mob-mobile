@@ -48,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 115vh;
   position: relative;
   text-align: center;
   background-image: url("/images/experience_img/back.png");
