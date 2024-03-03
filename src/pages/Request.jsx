@@ -239,7 +239,14 @@ const Request = () => {
   const navigate = useNavigate();
 
   const onClickCheck = () => {
-    navigate("/RequestCheck");
+    // 동의 체크 여부에 따라 다르게 동작하도록 설정
+    if (agree === "1") {
+      // 동의했을 경우 페이지 이동
+      navigate("/RequestCheck");
+    } else {
+      // 동의하지 않았을 경우 페이지 새로고침
+      window.location.reload();
+    }
   };
 
   const onClickBack = () => {
