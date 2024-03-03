@@ -162,7 +162,7 @@ const CardText = styled.p`
 const CardIntro = styled.p`
   padding-top: 4.5%;
   font-family: "DungGeunMo";
-  font-size: 15px;
+  font-size: 13px;
   white-space: pre-line;
   margin-left: -130px;
   margin-top: -10px;

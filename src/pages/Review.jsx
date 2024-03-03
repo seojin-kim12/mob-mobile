@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
-const {kakao} = window;
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
