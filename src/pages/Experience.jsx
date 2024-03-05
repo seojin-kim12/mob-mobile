@@ -324,7 +324,7 @@ const Experience = () => {
           </Body>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "200px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "220px" }} onClick={onClickBack}>
             Main
           </p>
           <p onClick={onClickRequest}>Request</p>
