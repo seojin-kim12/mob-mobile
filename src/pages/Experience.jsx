@@ -70,7 +70,7 @@ const Container = styled.div`
     z-index: 99;
     display: flixed;
     align-items: center;
-    height: 120vh;
+    height: 130vh;
     width: 0px;
     background-color: rgba(0, 0, 0, 0.9);
     margin-left: 590px;
