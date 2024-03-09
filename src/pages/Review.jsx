@@ -326,7 +326,7 @@ const toggleInfo = () => {
           </div>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "235px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "225px" }} onClick={onClickBack}>
             Main
           </p>
           <p onClick={onClickRequest}>Request</p>
