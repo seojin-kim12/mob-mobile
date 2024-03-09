@@ -58,7 +58,7 @@ const Container = styled.div`
     height: 130vh;
     background-color: rgba(0, 0, 0, 0.9);
     margin-left: 590px;
-    margin-top: -730px;
+    margin-top: -760px;
 
     p {
       display: none;
