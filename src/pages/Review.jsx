@@ -55,7 +55,7 @@ const Container = styled.div`
     z-index: 99;
     display: flixed;
     align-items: center;
-    height: 133vh;
+    height: 134vh;
     background-color: rgba(0, 0, 0, 0.9);
     margin-left: 590px;
     margin-top: -760px;
@@ -326,7 +326,7 @@ const toggleInfo = () => {
           </div>
         </BodyWrapper>
         <nav className={menuOpen ? "active" : ""} style={{ zIndex: 100 }}>
-          <p style={{ marginTop: "225px" }} onClick={onClickBack}>
+          <p style={{ marginTop: "235px" }} onClick={onClickBack}>
             Main
           </p>
           <p onClick={onClickRequest}>Request</p>
